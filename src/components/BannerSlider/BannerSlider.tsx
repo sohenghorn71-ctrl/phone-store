@@ -53,6 +53,23 @@ const banners = [
 ]
 
 const BannerSlider = () => {
+	const handleCtaClick = (cta: string) => {
+		switch (cta) {
+			case 'Shop Now':
+			case 'Explore':
+				document.getElementById('phones')?.scrollIntoView({ behavior: 'smooth' })
+				break
+			case 'Get Deal':
+				document.getElementById('deals')?.scrollIntoView({ behavior: 'smooth' })
+				break
+			case 'Trade In Now':
+				document.getElementById('phones')?.scrollIntoView({ behavior: 'smooth' })
+				break
+			default:
+				break
+		}
+	}
+
 	return (
 		<section className='banner-section' id='home'>
 			<Swiper
@@ -71,7 +88,9 @@ const BannerSlider = () => {
 								<h1 className='banner-title'>{banner.title}</h1>
 								<p className='banner-subtitle'>{banner.subtitle}</p>
 								<div className='banner-offer-pill'>{banner.offer}</div>
-								<button className='banner-cta'>{banner.cta} →</button>
+								<button className='banner-cta' onClick={() => handleCtaClick(banner.cta)}>
+									{banner.cta} →
+								</button>
 							</div>
 							<div className='banner-visual'>
 								<div className='banner-emoji'>{banner.emoji}</div>
